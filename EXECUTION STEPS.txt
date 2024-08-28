@@ -1,0 +1,7 @@
+STEP-1: Open the "carprice" folder in VSCode 
+STEP-2: write command "venv\Scripts\activate" to activate virtual environment 
+STEP-3: In (venv) type this command "pip install -r requirements.txt"
+STEP-4: The requirements based on the project will be installed (all the necessary files and modules)
+STEP-5: type "python manage.py runserver"
+STEP-6: It will redirect to the USERINTERFACE
+STEP-7: Provide the input it will give output (predicted price)

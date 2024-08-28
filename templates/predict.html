@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Price Prediction</title>
+    <style>
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        main {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #333;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin-top: 10px;
+        }
+
+        input {
+            margin-top: 5px;
+            padding: 5px;
+            width: 200px;
+        }
+
+        input[type="submit"] {
+            margin-top: 10px;
+            width: 100px;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Car Price Prediction</h1>
+    </header>
+    <main>
+        <form action="predict" method="post">
+            {% csrf_token %}
+            <label for="year">Year:</label><br>
+            <input type="text" id="year" name="year"><br>
+            <label for="present_price">Present Price:</label><br>
+            <input type="text" id="present_price" name="present_price"><br>
+            <label for="kms_driven">Kms Driven:</label><br>
+            <input type="text" id="kms_driven" name="kms_driven"><br>
+            <input type="submit" value="Predict">
+        </form>
+    </main>
+    {% if final_prediction %}
+        <h2 style="text-align: center;">Predicted Price: {{ final_prediction.0 }}</h2>
+    {% endif %}
+    <footer>
+        <p>© 2022 Car Price Prediction</p>
+    </footer>
+</body>
+</html>
